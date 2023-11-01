@@ -5,6 +5,6 @@ class cConsultorio:
 		# estado es un bool; siendo usado o no
 		self.estado = estado
 	
-	def habilitar(hora):
+	def habilitar(horaActual):
 		# El metodo habiliar recibe la hora del dia, y en base a eso y el numero de consultorio, se hablita o deshabilita
 		print()
