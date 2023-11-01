@@ -4,3 +4,5 @@ class cAmbulancia:
 		# por eso no esta declarado en esta clase
 		self.patente = patente
 		self.ocupante = ocupante
+	
+	

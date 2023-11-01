@@ -1,6 +1,6 @@
-import Persona
+import src.Persona
 
-class cMedico(Persona.cPersona):
+class cMedico(src.Persona.cPersona):
 	# Estado es si se encuentra ocupado o no
 	def __init__(self, dni, nombre, apellido, matricula, estado):
 		self.dni = dni

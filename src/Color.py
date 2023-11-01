@@ -9,16 +9,15 @@ class Colores(Enum):
 
 class cColor:
 
-	# ROJO = Politraumatismo grave = INMEDIATO
+	# politraumatismo grave
 
-	# NARANJA = Coma, Convulsiones, Hemorragia digestiva, Isquemia = 10 minutos
+	# coma, convulsiones, hemorragia digestiva, isquemia
 
-	# AMARILLO = Cefalea brusca, Paresia, Hipertensión arterial,
-	# Vértigo con afectación vegetativa, Síncope, rgencias psiquiátricas = 60 minutos
+	#Cefalea brusca, Paresia, Hipertensión arterial, vertigo con afectación vegetativa, Síncope, rgencias psiquiátricas
 
-	# VERDE = Otalgias, Odontalgias, Dolores inespecíficos leves, Traumatismos y Esguinces = 120 minutos
+	#Otalgias, Odontalgias, Dolores inespecíficos leves, Traumatismos y Esguinces
 
-	# AZUL = pacientes que no precisan atención de urgencia = 240 minutos
+	#pacientes que no precisan atención de urgencia
 
 	def __init__(self, coloracion):
 		# coloracion es del enum "Colores"
@@ -40,3 +39,9 @@ class cColor:
 			# En caso de no ser un color valido, se le asigna un tiempo imposible
 			# Esto es para FUTURAS EXCEPCIONES
 			self.tiempo = -1
+	
+	def setTiempo(self, newTiempo):
+		self.tiempo = newTiempo
+
+	def getTiempo(self):
+		return self.tiempo
