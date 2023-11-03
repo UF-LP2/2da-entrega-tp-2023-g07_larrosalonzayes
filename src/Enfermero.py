@@ -59,3 +59,6 @@ class cEnfermero(cPersona):
 
 		newColor = cColor(coloracion)
 		newPaciente.setColor(newColor)
+
+	
+	# def asignacionPaciente()

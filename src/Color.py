@@ -45,3 +45,6 @@ class cColor:
 
 	def getTiempo(self):
 		return self.tiempo
+	
+	def getColoracion(self):
+		return self.coloracion
