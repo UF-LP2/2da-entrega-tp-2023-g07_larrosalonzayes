@@ -1,13 +1,5 @@
 import csv
 
-import src.Ambulancia
-import src.Consultorio
-import src.Enfermero
-import src.Hospital
-import src.Medico
-import src.Paciente
-import src.SalaEspera
-
 # COSAS PARA HACER Y CONSULTAS #
 
 # - Metodo de acomodamiento de pacientes usando triage, ya esta hecha la asigancion de colores,
