@@ -1,13 +1,13 @@
 # Clase que contiene listados de medicos, consultorios, ambulancias y medicos
-import src.Paciente
-import src.Medico
-import src.Enfermero
-import src.Ambulancia
-import src.Consultorio
-import src.SalaEspera
+from src.Paciente import cPaciente
+from src.Medico import cMedico
+from src.Enfermero import cEnfermero
+from src.Ambulancia import cAmbulancia
+from src.Consultorio import cConsultorio
+from src.SalaEspera import cSalaEspera
 
 class cHospital:
-	def __init__(self, nombre, direccion, salaEspera: src.SalaEspera.cSalaEspera, listaEnfermeros, listaConsultorios, listaAmbulancias, listaMedicos):
+	def __init__(self, nombre, direccion, salaEspera: cSalaEspera, listaEnfermeros, listaConsultorios, listaAmbulancias, listaMedicos):
 		
 		self.nombre = nombre
 		self.direccion = direccion

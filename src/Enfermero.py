@@ -1,5 +1,6 @@
-import src.Persona
-import src.Color
+from src.Color import cColor
+from src.Color import Colores
+from src.Persona import cPersona
 from src.Paciente import cPaciente
 from enum import Enum
 
@@ -13,7 +14,7 @@ class Horarios(Enum):
 	HORAPICO = 3
 	TARDENOCHE = 4
 
-class cEnfermero(src.Persona.cPersona):
+class cEnfermero(cPersona):
 
 	# Usando super(), no es necesario usar el nombre del elemento padre, 
 	# sino que automaticamente heredará los metodos y propiedades de la clase padre
@@ -36,25 +37,25 @@ class cEnfermero(src.Persona.cPersona):
 	def catalogarPaciente(newPaciente: cPaciente):
 		coloracion = 0
 		if newPaciente.patologia == "politraumatismo grave":
-			coloracion = src.Color.Colores.ROJO
+			coloracion = Colores.ROJO
 
 		elif (newPaciente.patologia == "coma" or newPaciente.patologia == "convulsiones" or 
 		newPaciente.patologia == "hemmoragia digestiva" or newPaciente.patologia == "isquemia"):
-			coloracion = src.Color.Colores.NARANJA
+			coloracion = Colores.NARANJA
 
 		elif (newPaciente.patologia == "cefalea brusca" or newPaciente.patologia == "paresia" or 
 		newPaciente.patologia == "hipertension arterial" or newPaciente.patologia == "vertigo con afectacion vegetativa" or
 		newPaciente.patologia == "sincope" or newPaciente.patologia == "urgencias psiquiatricas"):
-			coloracion = src.Color.Colores.AMARILLO
+			coloracion = Colores.AMARILLO
 
 		elif (newPaciente.patologia == "otalgias" or newPaciente.patologia == "odontalgias" or 
 		newPaciente.patologia == "dolores inespecíficos leves" or newPaciente.patologia == "traumatismos" or
 		newPaciente.patologia == "esguinces"):
-			coloracion = src.Color.Colores.VERDE
+			coloracion = Colores.VERDE
 
 		else:
-			coloracion = src.Color.Colores.AZUL
+			coloracion = Colores.AZUL
 		
 
-		newColor = src.Color.cColor(coloracion)
+		newColor = cColor(coloracion)
 		newPaciente.setColor(newColor)

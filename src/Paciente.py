@@ -1,7 +1,7 @@
-import src.Persona
-import src.Color
+from src.Persona import cPersona
+from src.Color import cColor
 
-class cPaciente(src.Persona.cPersona):
+class cPaciente(cPersona):
 	def __init__(self, dni, nombre, apellido, patologia, edad, seguro):
 		super().__init__(dni, nombre, apellido)
 		# La edad esta como dato extra para acomodar por prioridad
@@ -14,5 +14,5 @@ class cPaciente(src.Persona.cPersona):
 		# color es de clase cColor, de entrada NULL, porque no tiene nada asignado por el hospital
 		self.color = None
 	
-	def setColor(self, nuevoColor: src.Color.cColor):
+	def setColor(self, nuevoColor: cColor):
 		self.color = nuevoColor
