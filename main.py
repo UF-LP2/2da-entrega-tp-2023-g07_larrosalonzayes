@@ -9,7 +9,7 @@ import csv
 # - Agregar caso particular de pacientes ingresados por ambulancia
 
 # - COMO PASAR COMO PARAMETRO A UN CONSTRUCTOR UNA LISTA, ACLARANDO QUE ES UNA LISTA (valga la redundancia)
-# No es necesario, arreglar todos los imports
+# No es necesario
 
 # - Consultar si lo del enum de colores esta bien implementado
 # No sabemos si esta bien implementado
@@ -28,16 +28,19 @@ import csv
 
 # - Agregar funciones para la lectura de archivos .csv
 
-# - Desarrollar una interfaz medianamente fea (y consultar si es necesario)
+# - Desarrollar una interfaz (y consultar si es necesario)
 
-from Ambulancia import cAmbulancia
-from Color import cColor
-from Consultorio import cConsultorio
-from Enfermero import cEnfermero
-from Hospital import cHospital
-from Medico import cMedico
-from Paciente import cPaciente
-from SalaEspera import cSalaEspera
+from src.Ambulancia import cAmbulancia
+from src.Color import cColor
+from src.Color import Colores
+from src.Consultorio import cConsultorio
+from src.Enfermero import cEnfermero
+from src.Hospital import cHospital
+from src.Medico import cMedico
+from src.Paciente import cPaciente
+from src.SalaEspera import cSalaEspera
+
+# def cargarPacientesCSV():
 
 def main() -> None:
 	# Inicio del main

@@ -17,3 +17,5 @@ class cHospital:
 		self.consultorios = listaConsultorios
 		self.ambulancias = listaAmbulancias
 		self.medicos = listaMedicos
+
+	# def triage(self):
