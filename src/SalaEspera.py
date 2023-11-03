@@ -1,5 +1,5 @@
-import src.Paciente
-import src.Enfermero
+from src.Paciente import cPaciente
+from src.Enfermero import cEnfermero
 
 class cSalaEspera:
 	def __init__(self, listaPacientes, listaEnfermeros):
@@ -8,5 +8,5 @@ class cSalaEspera:
 		# Se asume que el enfermero que esta en la sala de espera es porque esta libre
 		self.enfermeros = listaEnfermeros
 	
-	def ingresaPaciente(self, newPaciente: src.Paciente.cPaciente):
+	def ingresaPaciente(self, newPaciente: cPaciente):
 		self.pacientes.append(newPaciente)
