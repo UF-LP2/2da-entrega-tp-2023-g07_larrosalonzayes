@@ -17,5 +17,11 @@ class cPaciente(cPersona):
 	def setColor(self, nuevoColor: cColor):
 		self.color = nuevoColor
 	
+	def getColor(self):
+		return self.color
+
 	def getColoracion(self):
 		return self.color.getColoracion()
+	
+	def getSeguro(self):
+		return self.seguro
