@@ -60,5 +60,11 @@ class cEnfermero(cPersona):
 		newColor = cColor(coloracion)
 		newPaciente.setColor(newColor)
 
+	# Si el paciente del listado que se le pasa no esta catalogado, se lo analiza
+	def catalogarPacientes(listaPacientes):
+		for i in listaPacientes:
+			if i.getColor() == None:
+				cEnfermero.catalogarPaciente(i)
 	
-	# def asignacionPaciente()
+	# def asignacionConsultorio(newPaciente):
+
