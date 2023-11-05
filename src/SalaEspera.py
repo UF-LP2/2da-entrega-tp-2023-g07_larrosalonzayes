@@ -9,9 +9,17 @@ class cSalaEspera:
 		self.enfermeros = listaEnfermeros
 	
 	# Agrega un nuevo paciente al final de la lista
+	# Solo la utilizamos para cargar los datos de los pacientes al comienzo del programa
+	# ya que no tiene un orden de prioridades establecido
 	def ingresaPacienteAlFinal(self, newPaciente: cPaciente):
+		cSalaEspera.chequeoSeguro(newPaciente)
 		self.pacientes.append(newPaciente)
-	
+
+	# Agrega un nuevo paciente a una lista que ya esta ordenada, respetando el orden ya establecido
+	def ingresarPacienteOrdenado(self, newPaciente: cPaciente):
+		cSalaEspera.chequeoSeguro(newPaciente)
+		self.pacientes = self.insertSorted(self.pacientes, newPaciente)
+
 	def getPacientes(self):
 		return self.pacientes
 	
@@ -54,6 +62,38 @@ class cSalaEspera:
 
 		return resultado
 	
+	# Ingresa un paciente a una lista ya ordenada segun valores
+	def insertSorted(listaPacientes, newPaciente):
+		# Usamos búsqueda binaria para encontrar la posición adecuada para insertar el newPaciente
+		bajo = 0
+		alto = len(listaPacientes) - 1
+	
+		while bajo <= alto:
+			medio = (bajo + alto) // 2
+	
+			if listaPacientes[medio].getValor() == newPaciente.getValor():
+				# Si el newPaciente ya está en la lista, lo insertamos en su posición actual
+				listaPacientes.insert(medio, newPaciente)
+				return listaPacientes
+				
+			elif listaPacientes[medio].getValor() > newPaciente.getValor():
+				bajo = medio + 1
+			else:
+				alto = medio - 1
+
+		# Insertamos el newPaciente en la posición adecuada, en caso de que no haya coincidido con lo propuesto en el while
+		listaPacientes.insert(bajo, newPaciente)
+
+		return listaPacientes
+	
+
 	# Ordena los pacientes ya cargados utilizando mergeSort
 	def ordenarPacientes(self):
 		self.pacientes = cSalaEspera.mergeSort( self.getPacientes() )
+
+
+	# Chequea si el paciente tiene seguro medico o es votante de Massa
+	# En caso de ser pobre, levanta una exception
+	def chequeoSeguro(newPaciente: cPaciente):
+		if (newPaciente.getSeguro() != True):
+			raise AttributeError("Paciente sin seguro, se lo hecha")

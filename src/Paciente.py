@@ -19,3 +19,6 @@ class cPaciente(cPersona):
 	
 	def getColoracion(self):
 		return self.color.getColoracion()
+	
+	def getSeguro(self):
+		return self.seguro
