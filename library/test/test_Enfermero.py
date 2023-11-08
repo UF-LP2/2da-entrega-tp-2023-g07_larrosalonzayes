@@ -20,7 +20,7 @@ def test1_catalogarPaciente():
     paciente = cPaciente(1234, "Clarita", "Lops", "politraumatismo grave", 23, True)
 
     # Llama al método catalogarPaciente
-    cEnfermero.catalogarPaciente(paciente)
+    paciente = cEnfermero.catalogarPaciente(paciente)
 
     # Comprueba si el color del paciente se ha asignado correctamente
     assert paciente.getColor.Color()== Colores.ROJO
