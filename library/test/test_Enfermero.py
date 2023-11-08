@@ -12,18 +12,23 @@ def test1():
 	assert(cEnfermero.suma_numeros(100,4) == 104) 
 
 
-# Test para ver si asigna correctamente los colores según la patología declarada 
+# Test para ver si asigna correctamente los colores según la patología declarada
 
-def test1_catalogarPaciente():
     # Crea una instancia de cEnfermero y cPaciente
+def test1_catalogarPaciente():
+
     enfermero = cEnfermero(12345, "Juan", "Parker", "MANIANA", True)
-    paciente = cPaciente(1234, "Clarita", "Lops", "politraumatismo grave", 23, True)
+    paciente1 = cPaciente(1234, "Clarita", "Lops", "politraumatismo grave", 23, True)
 
-    # Llama al método catalogarPaciente
-    paciente = cEnfermero.catalogarPaciente(paciente)
+    # Llama al método catalogarPaciente en la instancia de cPaciente
+    paciente1_mod = cEnfermero.catalogarPaciente(paciente1)
+	 # Comprueba si el color del paciente se ha asignado correctamente
+    assert (paciente1_mod.getColor().getColoracion()== Colores.ROJO) 
+    
 
-    # Comprueba si el color del paciente se ha asignado correctamente
-    assert paciente.getColor.Color()== Colores.ROJO
+
+    
+
 
 
 

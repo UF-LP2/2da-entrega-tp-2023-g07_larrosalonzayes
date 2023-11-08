@@ -1,7 +1,4 @@
 import pytest
 
 from SalaEspera import cSalaEspera
-
-
-def algo():
-    ...
+from Paciente import cPaciente
