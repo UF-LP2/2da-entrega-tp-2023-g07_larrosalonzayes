@@ -57,6 +57,8 @@ class cEnfermero(cPersona):
 		
 		return listaPacientes
 	
+
+	## funcion de prueba para usar con unit test, desestimarla
 	def suma_numeros(a,b) :
 		suma = a + b
 		return suma

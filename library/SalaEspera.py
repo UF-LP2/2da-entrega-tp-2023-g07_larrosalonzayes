@@ -72,7 +72,7 @@ class cSalaEspera:
 				listaPacientes.insert(medio, newPaciente)
 				return listaPacientes
 				
-			elif listaPacientes[medio].getColoracion() > newPaciente.getValor():
+			elif listaPacientes[medio].getColoracion() > newPaciente.getColoracion():
 				bajo = medio + 1
 				
 			else:
