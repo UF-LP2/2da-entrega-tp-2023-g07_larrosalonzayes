@@ -67,5 +67,4 @@ class cEnfermero(cPersona):
 	
 	# def asignacionConsultorio(newPaciente):
 
-def suma_numeros(a, b):
-    return a + b
+	def suma_numeros(a, b): 	return a + b
