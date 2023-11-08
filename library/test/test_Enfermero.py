@@ -23,7 +23,7 @@ def test1_catalogarPaciente():
     # Llama al método catalogarPaciente en la instancia de cPaciente
     paciente1_mod = cEnfermero.catalogarPaciente(paciente1)
 	 # Comprueba si el color del paciente se ha asignado correctamente
-    assert (paciente1_mod.getColor().getColoracion()== Colores.ROJO) 
+    assert (paciente1_mod.getColoracion()== 5) 
     
 
 
