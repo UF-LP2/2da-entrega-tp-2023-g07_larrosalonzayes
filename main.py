@@ -10,15 +10,15 @@ import csv
 
 # - Desarrollar una interfaz (y consultar si es necesario)
 
-from src.Ambulancia import cAmbulancia
-from src.Color import cColor
-from src.Color import Colores
-from src.Consultorio import cConsultorio
-from src.Enfermero import cEnfermero
-from src.Hospital import cHospital
-from src.Medico import cMedico
-from src.Paciente import cPaciente
-from src.SalaEspera import cSalaEspera
+from library.Ambulancia import cAmbulancia
+from library.Color import cColor
+from library.Color import Colores
+from library.Consultorio import cConsultorio
+from library.Enfermero import cEnfermero
+from library.Hospital import cHospital
+from library.Medico import cMedico
+from library.Paciente import cPaciente
+from library.SalaEspera import cSalaEspera
 
 def cargarPacientesCSV():
 	listaPacientes = []

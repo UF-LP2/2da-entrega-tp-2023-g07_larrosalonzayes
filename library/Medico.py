@@ -1,5 +1,5 @@
-from src.Persona import cPersona
-from src.Enfermero import Horarios
+from Persona import cPersona
+from Enfermero import Horarios
 
 class cMedico(cPersona):
 	# Estado es si se encuentra ocupado o no

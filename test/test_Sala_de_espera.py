@@ -1,5 +1,7 @@
 import pytest
 
-from src.SalaEspera import cSalaEspera
+from library.SalaEspera import cSalaEspera
 
 
+def algo():
+    ...

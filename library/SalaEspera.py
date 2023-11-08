@@ -1,5 +1,5 @@
-from src.Paciente import cPaciente
-from src.Enfermero import cEnfermero
+from Paciente import cPaciente
+from Enfermero import cEnfermero
 
 class cSalaEspera:
 	def __init__(self, listaPacientes):

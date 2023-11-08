@@ -1,4 +1,4 @@
 import pytest
 
-from src.Hospital import cHospital
+from library.Hospital import cHospital
 

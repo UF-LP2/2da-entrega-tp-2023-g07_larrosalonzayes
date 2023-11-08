@@ -1,6 +1,6 @@
 import pytest
 
-from library.clases.Enfermero import cEnfermero
+from library.Enfermero import cEnfermero
 #from src.Paciente import cPaciente
 #from src.Color import cColor, Colores
 
