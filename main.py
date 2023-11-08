@@ -1,4 +1,5 @@
 import csv
+import string
 
 # COSAS PARA HACER #
 
@@ -15,17 +16,59 @@ from library.Color import cColor
 from library.Color import Colores
 from library.Consultorio import cConsultorio
 from library.Enfermero import cEnfermero
+from library.Enfermero import Horarios
 from library.Hospital import cHospital
 from library.Medico import cMedico
 from library.Paciente import cPaciente
 from library.SalaEspera import cSalaEspera
 
+# dni, nombre, apellido, patologia, edad, seguro
+
 def cargarPacientesCSV():
 	listaPacientes = []
 	return listaPacientes
 
-def cargarMedicosCSV():
+# def cargarAuxCSV(listaPacientes, archivo: string):
+# 	with open(archivo, mode="r") as file:
+# 		# DictReader() se usa para archivos con encabezado
+# 		fp = csv.DictReader(file)
+# 		for i in fp:
+# 			aux = cAux( int( i["id"] ) )
+# 			listaPacientes.append(aux)
+# 		return listaPacientes
+	
+def cargarMedicosCSV(archivo: string):
 	listaMedicos = []
+	
+	with open(archivo, mode="r") as file:
+		fp = csv.DictReader(file)
+		# NOCTURNO = 1
+		# MANIANA = 2
+		# HORAPICO = 3
+		# TARDENOCHE = 4
+		for i in fp:
+			auxTurno = 0
+			if i["turno"] == 1:
+				auxTurno = Horarios.NOCTURNO
+
+			elif i["turno"] == 2:
+				auxTurno = Horarios.MANIANA
+
+			elif i["turno"] == 3:
+				auxTurno= Horarios.HORAPICO
+
+			else:
+				auxTurno = Horarios.TARDENOCHE
+
+			auxBool = False
+			if i["estado"] == "True":
+				auxBool = True
+			# dni,nombre,apellido,matricula,estado,turno
+
+			auxMed = cMedico(i["dni"], i["nombre"], i["apellido"], i["matricula"], auxBool, auxTurno)
+
+			listaMedicos.append(auxMed)
+
 	return listaMedicos
 
 def cargarEnfermerosCSV():
@@ -36,7 +79,7 @@ def cargarEnfermerosCSV():
 def main() -> None:
 	# Inicio del main
 	listaPacientes = cargarPacientesCSV()
-	listaMedicos = cargarMedicosCSV()
+	listaMedicos = cargarMedicosCSV("medicos.csv")
 	listaEnfermeros = cargarEnfermerosCSV()
 
 	# Por la poca cantidad de datos, los inicializamos sin la necesidad de un .csv
