@@ -1,8 +1,8 @@
 # Clase que contiene listados de medicos, consultorios, ambulancias y medicos
-from Medico import cMedico
-from Ambulancia import cAmbulancia
-from Consultorio import cConsultorio
-from SalaEspera import cSalaEspera
+from library.Medico import cMedico
+from library.Ambulancia import cAmbulancia
+from library.Consultorio import cConsultorio
+from library.SalaEspera import cSalaEspera
 
 class cHospital:
 	def __init__(self, nombre, direccion, salaEspera: cSalaEspera, listaEnfermeros, listaConsultorios, listaAmbulancias, listaMedicos):

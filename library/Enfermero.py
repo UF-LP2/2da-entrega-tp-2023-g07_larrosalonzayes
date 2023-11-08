@@ -1,4 +1,6 @@
-from Paciente import cPaciente, cPersona, cColor, Colores
+from library.Paciente import cPaciente
+from library.Persona import cPersona
+from library.Color import cColor, Colores
 from enum import Enum
 
 class Horarios(Enum):

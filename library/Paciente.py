@@ -1,5 +1,5 @@
-from Persona import cPersona
-from Color import cColor, Colores
+from library.Persona import cPersona
+from library.Color import cColor, Colores
 
 class cPaciente(cPersona):
 	def __init__(self, dni, nombre, apellido, patologia, edad, seguro):
