@@ -1,8 +1,7 @@
 # Clase que contiene listados de medicos, consultorios, ambulancias y medicos
-from library.Medico import cMedico
-from library.Ambulancia import cAmbulancia
-from library.Consultorio import cConsultorio
+
 from library.SalaEspera import cSalaEspera
+from library.Enfermero import cEnfermero
 
 class cHospital:
 	def __init__(self, nombre, direccion, salaEspera: cSalaEspera, listaEnfermeros, listaConsultorios, listaAmbulancias, listaMedicos):
@@ -79,5 +78,5 @@ class cHospital:
 	
 	# Se cargan todos los pacientes del inicio del programa al hospital
 	def cargarPacientesIniciales(self, listaEnfermos):
-		self.salaEspera.setPacientes(listaEnfermos)
+		self.salaEspera.setPacientes( cEnfermero.catalogarPacientes(listaEnfermos) )
 		self.salaEspera.ordenarPacientes()
