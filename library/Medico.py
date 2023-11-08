@@ -1,5 +1,4 @@
 from library.Persona import cPersona
-from library.Enfermero import Horarios
 
 class cMedico(cPersona):
 	# Estado es si se encuentra ocupado o no

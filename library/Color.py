@@ -1,12 +1,5 @@
 from enum import Enum
 
-class Colores(Enum):
-	ROJO = 5
-	NARANJA = 4
-	AMARILLO = 3
-	VERDE = 2
-	AZUL = 1
-
 class cColor:
 
 	# politraumatismo grave
@@ -25,15 +18,15 @@ class cColor:
 		
 		# Se asigna un tiempo de espera en base a la coloracion asignada
 		# Como no hay switch() case: en python, usamos varios eli()f
-		if (coloracion == Colores.ROJO):
+		if (coloracion == 5):
 			self.tiempo = 0
-		elif (coloracion == Colores.NARANJA):
+		elif (coloracion == 4):
 			self.tiempo = 10
-		elif (coloracion == Colores.AMARILLO):
+		elif (coloracion == 3):
 			self.tiempo = 60
-		elif (coloracion == Colores.VERDE):
+		elif (coloracion == 2):
 			self.tiempo = 120
-		elif (coloracion == Colores.AZUL):
+		elif (coloracion == 1):
 			self.tiempo = 240
 		else:
 			# En caso de no ser un color valido, se le asigna un tiempo imposible

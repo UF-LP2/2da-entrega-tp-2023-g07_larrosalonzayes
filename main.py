@@ -13,19 +13,37 @@ import string
 
 from library.Ambulancia import cAmbulancia
 from library.Color import cColor
-from library.Color import Colores
 from library.Consultorio import cConsultorio
 from library.Enfermero import cEnfermero
-from library.Enfermero import Horarios
 from library.Hospital import cHospital
 from library.Medico import cMedico
 from library.Paciente import cPaciente
 from library.SalaEspera import cSalaEspera
 
-# dni, nombre, apellido, patologia, edad, seguro
+# 1 NOCTURNO = 23:00 a 06:00
+# 2 MANIANA = 06:00 a 10:00
+# 3 HORAPICO = 10:00 a 16:00
+# 4 TARDENOCHE = 16:00 a 23:00
 
-def cargarPacientesCSV():
+# 5 ROJO
+# 4 NARANJA
+# 3 AMARILLO
+# 2 VERDE 
+
+def cargarPacientesCSV(archivo):
 	listaPacientes = []
+
+	with open(archivo, mode="r") as file:
+		fp = csv.DictReader(file)
+		for i in fp:
+			auxBool = False
+			if i["seguro"] == "true":
+				auxBool = True
+			# dni, nombre, apellido, patologia, edad, seguro
+			auxPac = cPaciente(i["dni"], i["nombre"], i["apellido"], i["patologia"], int(i["edad"]), auxBool)
+
+			listaPacientes.append(auxPac)
+
 	return listaPacientes
 
 # def cargarAuxCSV(listaPacientes, archivo: string):
@@ -49,22 +67,22 @@ def cargarMedicosCSV(archivo: string):
 		for i in fp:
 			auxTurno = 0
 			if i["turno"] == 1:
-				auxTurno = Horarios.NOCTURNO
+				auxTurno = 1
 
 			elif i["turno"] == 2:
-				auxTurno = Horarios.MANIANA
+				auxTurno = 2
 
 			elif i["turno"] == 3:
-				auxTurno= Horarios.HORAPICO
+				auxTurno= 3
 
 			else:
-				auxTurno = Horarios.TARDENOCHE
+				auxTurno = 4
 
 			auxBool = False
 			if i["estado"] == "True":
 				auxBool = True
-			# dni,nombre,apellido,matricula,estado,turno
 
+			# dni,nombre,apellido,matricula,estado,turno
 			auxMed = cMedico(i["dni"], i["nombre"], i["apellido"], i["matricula"], auxBool, auxTurno)
 
 			listaMedicos.append(auxMed)
@@ -78,7 +96,7 @@ def cargarEnfermerosCSV():
 
 def main() -> None:
 	# Inicio del main
-	listaPacientes = cargarPacientesCSV()
+	listaPacientes = cargarPacientesCSV("pacientes.csv")
 	listaMedicos = cargarMedicosCSV("medicos.csv")
 	listaEnfermeros = cargarEnfermerosCSV()
 
@@ -91,16 +109,19 @@ def main() -> None:
 
 	listaConsultorios = []
 	listaConsultorios.append(cons0)
-	listaConsultorios.append(cons1)
 	listaConsultorios.append(cons2)
 	listaConsultorios.append(cons3)
 	listaConsultorios.append(cons4)
 
 	# Lista de ambulancias por ahora vacia, ya que no desarrollamos esa parte
 	listaAmbulancias = []
-
-	salaEspera = cSalaEspera(listaPacientes)
+	
+	# La sala de espera se inicializa con una lista vacia
+	salaEspera = cSalaEspera( [] )
 	hospital = cHospital("Favaloro", "ABC123", salaEspera, listaEnfermeros, listaConsultorios, listaAmbulancias, listaMedicos)
+
+	# En este metodo
+	hospital.cargarPacientesIniciales(listaPacientes)
 
 
 if __name__ == "__main__":
