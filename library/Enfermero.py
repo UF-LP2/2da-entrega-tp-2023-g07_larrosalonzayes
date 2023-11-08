@@ -57,3 +57,6 @@ class cEnfermero(cPersona):
 		
 		return listaPacientes
 	
+	def suma_numeros(a,b) :
+		suma = a + b
+		return suma
