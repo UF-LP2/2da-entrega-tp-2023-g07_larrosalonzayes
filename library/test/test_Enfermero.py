@@ -50,10 +50,12 @@ def test3_catalogarPaciente():
     paciente1_mod = cEnfermero.catalogarPaciente(paciente1)
 	 # Comprueba si el color del paciente se ha asignado correctamente
     assert (paciente1_mod.getColoracion()== 1) == False
+    
 
 
 
 
+ 
 
 
 
