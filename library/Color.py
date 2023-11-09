@@ -13,20 +13,20 @@ class cColor:
 		# que se va a usar en comparacion al tiempo que el paciente este esperando
 
 		if (coloracion == 5):
-			espera = datetime.timedelta(minutes=0)
-			self.tiempo = espera
+			self.tiempo = datetime.timedelta(minutes=0)
+
 		elif (coloracion == 4):
-			espera = datetime.timedelta(minutes=10)
-			self.tiempo = espera
+			self.tiempo = datetime.timedelta(minutes=10)
+
 		elif (coloracion == 3):
-			espera = datetime.timedelta(minutes=60)
-			self.tiempo = espera
+			self.tiempo = datetime.timedelta(minutes=60)
+
 		elif (coloracion == 2):
-			espera = datetime.timedelta(minutes=120)
-			self.tiempo = espera
+			self.tiempo = datetime.timedelta(minutes=120)
+
 		elif (coloracion == 1):
-			espera = datetime.timedelta(minutes=240)
-			self.tiempo = espera
+			self.tiempo = datetime.timedelta(minutes=240)
+			
 		else:
 			# En caso de ser un color invalido, se le asigna un tiempo imposible
 			# Esto es para FUTURAS EXCEPCIONES
