@@ -4,7 +4,7 @@ from library.SalaEspera import cSalaEspera
 from library.Enfermero import cEnfermero
 
 class cHospital:
-	def __init__(self, nombre, direccion, salaEspera: cSalaEspera, listaEnfermeros, listaConsultorios, listaAmbulancias, listaMedicos):
+	def __init__(self, nombre, direccion, salaEspera: cSalaEspera, listaEnfermeros, listaConsultorios, listaMedicos):
 		
 		self.nombre = nombre
 		self.direccion = direccion
@@ -13,7 +13,6 @@ class cHospital:
 
 		self.enfermeros = listaEnfermeros
 		self.consultorios = listaConsultorios
-		self.ambulancias = listaAmbulancias
 		self.medicos = listaMedicos
 
 	# Hora es un numero entero entre 0 y 2359

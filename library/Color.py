@@ -1,16 +1,4 @@
-from enum import Enum
-
 class cColor:
-
-	# politraumatismo grave
-
-	# coma, convulsiones, hemorragia digestiva, isquemia
-
-	#Cefalea brusca, Paresia, Hipertensión arterial, vertigo con afectación vegetativa, Síncope, rgencias psiquiátricas
-
-	#Otalgias, Odontalgias, Dolores inespecíficos leves, Traumatismos y Esguinces
-
-	#pacientes que no precisan atención de urgencia
 
 	def __init__(self, coloracion):
 		# coloracion es del enum "Colores"
