@@ -16,8 +16,8 @@ from library.funcionesCSV import cargarMedicosCSV, cargarEnfermerosCSV, cargarPa
 
 # COSAS PARA HACER
 # 
-# - Intefaz     (si o si)
-# - Simulación  (si o si)
+# - Intefaz (si o si)
+# - Simulación (si o si)
 # - Función de paso de tiempo (ver si usamos time o como lo manejamos)
 # - Función para los tiempos de espera (si un naranja supera el tiempo de espera maximo, hay que setearle el color a rojo para q lo atiendan) 
 # - Asignar a los pacientes de la lista (ya ordenados) el consulorio (si o si) 
@@ -51,6 +51,7 @@ def main() -> None:
 	hospital.cargarPacientesIniciales(listaPacientes)
 
 	hospital.imprimir()
+	hospital.adelantar5Min()
 
 
 if __name__ == "__main__":

@@ -1,3 +1,5 @@
+import datetime
+
 from library.Persona import cPersona
 from library.Color import cColor
 
@@ -15,7 +17,7 @@ class cPaciente(cPersona):
 		self.color = None
 
 		# espera es el atributo que muestra el tiempo esperado por el paciente en la sala de espera
-		self.espera = 0
+		self.espera = datetime.timedelta(minutes=0)
 	
 	def setColor(self, nuevoColor: cColor):
 		self.color = nuevoColor
@@ -26,6 +28,12 @@ class cPaciente(cPersona):
 	
 	def getEsperaMax(self):
 		return self.color.getTiempo()
+	
+	def setEsperado5Min(self):
+		self.espera += datetime.timedelta(minutes=5)
+
+	def getEsperado(self):
+		return self.espera
 
 	# Retorna directamente el numero que representa el color del paciente
 	def getColoracion(self):
