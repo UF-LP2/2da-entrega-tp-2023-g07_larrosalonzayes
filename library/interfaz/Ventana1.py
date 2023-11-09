@@ -1,14 +1,14 @@
 from tkinter import *
 from tkinter import PhotoImage
-
 ventana = Tk()
 ventana.geometry('500x600') # tamanyo en pixeles de la ventana
 ventana.config(bg='grey') #asigno fondo blanco a la ventana
 ventana.title('tp lp2')
 etiqueta= Label(ventana, text='Hospital Favaloro', fg='white', bg='grey', font='Verdana')
 etiqueta.place(x=180, y= 10)
-#imagen=PhotoImage(file='logo.png')
+#img=PhotoImage(file='logo.png')
 #Label=(ventana,Image=imagen)
+#lbl=(ventana, image= img)
 
 boton= Button(ventana, text='Mostrar sala de espera', fg='black', font='Verdana')
 boton2= Button(ventana, text='Riesgo vital',bg='red', fg='white', font='Verdana')
