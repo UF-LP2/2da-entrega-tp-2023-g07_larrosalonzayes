@@ -50,6 +50,8 @@ def main() -> None:
 	# segun el metodo usado por los enfermeros, y luego se ordenan usando merge-sort
 	hospital.cargarPacientesIniciales(listaPacientes)
 
+	hospital.imprimir()
+
 
 if __name__ == "__main__":
 	main()

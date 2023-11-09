@@ -93,3 +93,7 @@ class cSalaEspera:
 		if (newPaciente.getSeguro() != True):
 			raise AttributeError("Paciente sin seguro, se lo hecha")
 	
+	def imprimir(self):
+		for i in self.pacientes:
+			print(i.dni, i.nombre, i.apellido, i.patologia, i.getColoracion(), i.getEsperaMax())
+			print("\n")
