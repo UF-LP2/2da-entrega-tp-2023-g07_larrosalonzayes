@@ -1,6 +1,6 @@
 # Clase que contiene listados de medicos, consultorios, ambulancias y medicos
 
-import datetime
+from datetime import time
 
 from library.SalaEspera import cSalaEspera
 from library.Enfermero import cEnfermero
@@ -26,34 +26,40 @@ class cHospital:
 	# MANIANA = 06:00 a 10:00 - 2
 	# HORAPICO = 10:00 a 16:00 - 5
 	# TARDENOCHE = 16:00 a 23:00 - 3
-	def verHabilitacion(self, hora):
-		if (2300 <= hora and hora < 2359) or (0000 <= hora and hora < 600):
+
+	# hora es la hora a la cual se invoca este metodo
+	# (en relacion al tiempo del programa, es decir, 5 minutos cada ciclo)
+	def habilitarConsultorios(self, hora):
+		ahora = hora.time()
+		if (time(23,0) <= ahora and ahora <= time(23,59)) or (time(0,0) <= ahora and ahora < time(6,00)):
 			self.consultorios[0].habilitar(True)
 			self.consultorios[1].habilitar(False)
 			self.consultorios[2].habilitar(False)
 			self.consultorios[3].habilitar(False)
 			self.consultorios[4].habilitar(False)
 
-		elif (600 <= hora and hora < 1000):
+		elif (time(6,0) <= ahora and ahora < time(10,0)):
 			self.consultorios[0].habilitar(True)
 			self.consultorios[1].habilitar(True)
 			self.consultorios[2].habilitar(False)
 			self.consultorios[3].habilitar(False)
 			self.consultorios[4].habilitar(False)
 			
-		elif (1000 <= hora and hora < 1600):
+		elif (time(10,0) <= ahora and ahora < time(16,0)):
 			self.consultorios[0].habilitar(True)
 			self.consultorios[1].habilitar(True)
 			self.consultorios[2].habilitar(True)
 			self.consultorios[3].habilitar(True)
 			self.consultorios[4].habilitar(True)
 
-		elif (1600 <= hora and hora < 2300):
+		elif (time(16,0) <= ahora and ahora < time(23,0)):
 			self.consultorios[0].habilitar(True)
 			self.consultorios[1].habilitar(True)
 			self.consultorios[2].habilitar(True)
 			self.consultorios[3].habilitar(False)
 			self.consultorios[4].habilitar(False)
+
+
 
 	# Elige un enfermero dependiendo de la hora para que catalogue a todos los pacientes
 	# que no hayan sido previamente diagnosticados (que su color sea NONE)
@@ -82,13 +88,28 @@ class cHospital:
 		self.salaEspera.setPacientes( cEnfermero.catalogarPacientes(listaEnfermos) )
 		self.salaEspera.ordenarPacientes()
 
+
 	# Imprime la lista de pacientes de la sala de espera
-	def imprimir(self):
+	def imprimirPacientes(self):
 		self.salaEspera.imprimir()
 
-	# Por motivos de simulacion, habra un boton que invoque este metodo
-	# adelantara los tiempos esperados de todos los pacientes QUE NO ESTEN ATENDIDOS
-	# unos 5 minutos
+
+	def imprimirConsultorios(self):
+		for i in self.consultorios:
+			print("N%d" % i.N , i.habilitado)
+		print("\n")
+
+
+	# Por motivos de simulacion, habra un boton que invoque 
+	# este metodo adelantara los tiempos esperados de todos
+	# los pacientes QUE NO ESTEN ATENDIDOS unos 5 minutos
 	def adelantar5Min(self):
 		for i in self.salaEspera.getPacientes():
 			i.setEsperado5Min()
+
+	def atenderRojos(self):
+		for i in self.salaEspera.getPacientes():
+			if i.getColoracion() == 5:
+				for j in self.consultorios:
+					if j.estado and j.habilitado:
+						j.estado = False

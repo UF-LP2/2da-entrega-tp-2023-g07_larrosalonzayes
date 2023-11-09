@@ -1,3 +1,5 @@
+from datetime import datetime, time
+
 from library.Consultorio import cConsultorio
 from library.Hospital import cHospital
 from library.SalaEspera import cSalaEspera
@@ -18,9 +20,8 @@ from library.funcionesCSV import cargarMedicosCSV, cargarEnfermerosCSV, cargarPa
 # 
 # - Intefaz (si o si)
 # - Simulación (si o si)
-# - Función de paso de tiempo (ver si usamos time o como lo manejamos)
 # - Función para los tiempos de espera (si un naranja supera el tiempo de espera maximo, hay que setearle el color a rojo para q lo atiendan) 
-# - Asignar a los pacientes de la lista (ya ordenados) el consulorio (si o si) 
+# - Asignar a los pacientes de la lista (ya ordenados) el consulorio (si o si)
 
 def main() -> None:
 	# Inicio del main
@@ -38,6 +39,7 @@ def main() -> None:
 
 	listaConsultorios = []
 	listaConsultorios.append(cons0)
+	listaConsultorios.append(cons1)
 	listaConsultorios.append(cons2)
 	listaConsultorios.append(cons3)
 	listaConsultorios.append(cons4)
@@ -50,7 +52,12 @@ def main() -> None:
 	# segun el metodo usado por los enfermeros, y luego se ordenan usando merge-sort
 	hospital.cargarPacientesIniciales(listaPacientes)
 
-	hospital.imprimir()
+	hospital.imprimirPacientes()
+
+	hospital.imprimirConsultorios()
+	hospital.habilitarConsultorios(datetime.now())
+	hospital.imprimirConsultorios()
+
 	hospital.adelantar5Min()
 
 
