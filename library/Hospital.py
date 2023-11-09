@@ -107,9 +107,18 @@ class cHospital:
 		for i in self.salaEspera.getPacientes():
 			i.setEsperado5Min()
 
+
 	def atenderRojos(self):
+		for i in self.consultorios:
+			print(i.estado)
+
+		print("\n")
+		
 		for i in self.salaEspera.getPacientes():
 			if i.getColoracion() == 5:
 				for j in self.consultorios:
-					if j.estado and j.habilitado:
-						j.estado = False
+					if j.estado == False and j.habilitado:
+						j.estado = True
+
+		for i in self.consultorios:
+			print(i.estado)
