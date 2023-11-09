@@ -23,7 +23,6 @@ class cSalaEspera:
 	def setPacientes(self, newPacientes):
 		self.pacientes = newPacientes
 
-
 	# Tanto mergeSort() como merge() son metodos DE CLASE
 	# y no de objeto, para poder usarse de forma recursiva sin problemas
 	# (lo probamos aparte y de no ser asi se rompia siempre)
@@ -68,13 +67,14 @@ class cSalaEspera:
 		while bajo <= alto:
 			medio = (bajo + alto) // 2
 	
-			if listaPacientes[medio].getValor() == newPaciente.getValor():
+			if listaPacientes[medio].getColoracion() == newPaciente.getColoracion():
 				# Si el newPaciente ya está en la lista, lo insertamos en su posición actual
 				listaPacientes.insert(medio, newPaciente)
 				return listaPacientes
 				
-			elif listaPacientes[medio].getValor() > newPaciente.getValor():
+			elif listaPacientes[medio].getColoracion() > newPaciente.getColoracion():
 				bajo = medio + 1
+				
 			else:
 				alto = medio - 1
 
@@ -86,7 +86,7 @@ class cSalaEspera:
 
 	# Ordena los pacientes ya cargados utilizando mergeSort
 	def ordenarPacientes(self):
-		self.pacientes = cSalaEspera.mergeSort( self.getPacientes() )
+		self.pacientes = cSalaEspera.mergeSort( self.pacientes )
 
 
 	# Chequea si el paciente tiene seguro medico o es votante de Massa
@@ -94,3 +94,4 @@ class cSalaEspera:
 	def chequeoSeguro(newPaciente: cPaciente):
 		if (newPaciente.getSeguro() != True):
 			raise AttributeError("Paciente sin seguro, se lo hecha")
+	

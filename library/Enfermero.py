@@ -1,17 +1,6 @@
 from library.Paciente import cPaciente
 from library.Persona import cPersona
-from library.Color import cColor, Colores
-from enum import Enum
-
-class Horarios(Enum):
-	# NOCTURNO = 23:00 a 06:00
-	# MANIANA = 06:00 a 10:00
-	# HORAPICO = 10:00 a 16:00
-	# TARDENOCHE = 16:00 a 23:00
-	NOCTURNO = 1
-	MANIANA = 2
-	HORAPICO = 3
-	TARDENOCHE = 4
+from library.Color import cColor
 
 class cEnfermero(cPersona):
 
@@ -36,36 +25,40 @@ class cEnfermero(cPersona):
 	def catalogarPaciente(newPaciente: cPaciente):
 		coloracion = 0
 		if newPaciente.patologia == "politraumatismo grave":
-			coloracion = Colores.ROJO
+			coloracion = 5
 
 		elif (newPaciente.patologia == "coma" or newPaciente.patologia == "convulsiones" or 
 		newPaciente.patologia == "hemmoragia digestiva" or newPaciente.patologia == "isquemia"):
-			coloracion = Colores.NARANJA
+			coloracion = 4
 
 		elif (newPaciente.patologia == "cefalea brusca" or newPaciente.patologia == "paresia" or 
 		newPaciente.patologia == "hipertension arterial" or newPaciente.patologia == "vertigo con afectacion vegetativa" or
 		newPaciente.patologia == "sincope" or newPaciente.patologia == "urgencias psiquiatricas"):
-			coloracion = Colores.AMARILLO
+			coloracion = 3
 
 		elif (newPaciente.patologia == "otalgias" or newPaciente.patologia == "odontalgias" or 
 		newPaciente.patologia == "dolores inespecíficos leves" or newPaciente.patologia == "traumatismos" or
 		newPaciente.patologia == "esguinces"):
-			coloracion = Colores.VERDE
+			coloracion = 2
 
 		else:
-			coloracion = Colores.AZUL
+			coloracion = 1
 		
 
 		newColor = cColor(coloracion)
 		newPaciente.setColor(newColor)
+		return newPaciente
 
 	# Si el paciente del listado que se le pasa no esta catalogado, se lo analiza
 	def catalogarPacientes(listaPacientes):
 		for i in listaPacientes:
 			if i.getColor() == None:
-				cEnfermero.catalogarPaciente(i)
+				i = cEnfermero.catalogarPaciente(i)
+		
+		return listaPacientes
 	
-	# def asignacionConsultorio(newPaciente):
 
-def suma_numeros(a, b):
-    return a + b
+	## funcion de prueba para usar con unit test, desestimarla
+	def suma_numeros(a,b) :
+		suma = a + b
+		return suma
