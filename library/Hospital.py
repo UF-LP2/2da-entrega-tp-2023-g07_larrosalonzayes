@@ -1,10 +1,13 @@
 # Clase que contiene listados de medicos, consultorios, ambulancias y medicos
 
+import datetime
+from library.funcionesTiempo import tiempoActual, tiempoTranscurrido
+
 from library.SalaEspera import cSalaEspera
 from library.Enfermero import cEnfermero
 
 class cHospital:
-	def __init__(self, nombre, direccion, salaEspera: cSalaEspera, listaEnfermeros, listaConsultorios, listaAmbulancias, listaMedicos):
+	def __init__(self, nombre, direccion, salaEspera: cSalaEspera, listaEnfermeros, listaConsultorios, listaMedicos):
 		
 		self.nombre = nombre
 		self.direccion = direccion
@@ -13,7 +16,6 @@ class cHospital:
 
 		self.enfermeros = listaEnfermeros
 		self.consultorios = listaConsultorios
-		self.ambulancias = listaAmbulancias
 		self.medicos = listaMedicos
 
 	# Hora es un numero entero entre 0 y 2359
@@ -80,3 +82,30 @@ class cHospital:
 	def cargarPacientesIniciales(self, listaEnfermos):
 		self.salaEspera.setPacientes( cEnfermero.catalogarPacientes(listaEnfermos) )
 		self.salaEspera.ordenarPacientes()
+
+	# Imprime la lista de pacientes de la sala de espera
+	def imprimir(self):
+		self.salaEspera.imprimir()
+
+	def simular(self):
+		# Tiempo inicial
+		tiempoAhora = tiempoActual()
+		# Tiempo Pasado
+		tiempoPasado = 0
+		while tiempoPasado(tiempoPasado <= 1435):
+			for i in self.salaEspera.getPacientes():
+
+			if tiempo == 1435:
+				tiempo = 0
+				
+
+
+		# Simula estar en la sala de espera durante 30 segundos (puedes ajustar según lo que necesites)
+		tiempoMaxEspera = datetime.timedelta(seconds=30)
+
+		while datetime.now() - tiempo_actual < tiempo_total_espera:
+			# Simula esperar 1 segundo antes de sumar 5 minutos
+			datetime.time.sleep(1)
+	
+			# Suma 5 minutos al tiempo actual
+			tiempo_actual += datetime.timedelta(minutes=5)

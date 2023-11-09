@@ -1,5 +1,4 @@
 from library.Paciente import cPaciente
-from library.Enfermero import cEnfermero
 
 class cSalaEspera:
 	def __init__(self, listaPacientes):
@@ -28,7 +27,7 @@ class cSalaEspera:
 	# (lo probamos aparte y de no ser asi se rompia siempre)
 	def mergeSort(listaPacientes):
 		medio = len(listaPacientes) // 2
-
+		
 		if medio < 1:
 			return listaPacientes
 		
@@ -57,7 +56,6 @@ class cSalaEspera:
 		resultado.extend(derecha[posDer:])
 
 		return resultado
-	
 	# Ingresa un paciente a una lista ya ordenada segun valores
 	def insertSorted(listaPacientes, newPaciente):
 		# Usamos búsqueda binaria para encontrar la posición adecuada para insertar el newPaciente
@@ -95,3 +93,7 @@ class cSalaEspera:
 		if (newPaciente.getSeguro() != True):
 			raise AttributeError("Paciente sin seguro, se lo hecha")
 	
+	def imprimir(self):
+		for i in self.pacientes:
+			print(i.dni, i.nombre, i.apellido, i.patologia, i.getColoracion(), i.getEsperaMax())
+			print("\n")

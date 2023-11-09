@@ -13,15 +13,24 @@ class cPaciente(cPersona):
 
 		# color es de clase cColor, de entrada NULL, porque no tiene nada asignado por el hospital
 		self.color = None
+
+		# espera es el atributo que muestra el tiempo esperado por el paciente en la sala de espera
+		self.espera = 0
 	
 	def setColor(self, nuevoColor: cColor):
 		self.color = nuevoColor
 	
+	# Retorna el puntero del color asignado al paciente
 	def getColor(self):
 		return self.color
+	
+	def getEsperaMax(self):
+		return self.color.getTiempo()
 
+	# Retorna directamente el numero que representa el color del paciente
 	def getColoracion(self):
 		return self.color.getColoracion()
 	
+	# retorna si el paciente tiene seguro o no
 	def getSeguro(self):
 		return self.seguro
