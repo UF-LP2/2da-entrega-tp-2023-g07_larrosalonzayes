@@ -1,14 +1,17 @@
 from tkinter import *
 from tkinter import PhotoImage
+from library.Enfermero import cEnfermero
+
 ventana = Tk()
 ventana.geometry('500x600') # tamanyo en pixeles de la ventana
 ventana.config(bg='grey') #asigno fondo blanco a la ventana
 ventana.title('tp lp2')
 etiqueta= Label(ventana, text='Hospital Favaloro', fg='white', bg='grey', font='Verdana')
 etiqueta.place(x=180, y= 10)
-#img=PhotoImage(file='logo.png')
-#Label=(ventana,Image=imagen)
-#lbl=(ventana, image= img)
+#img=PhotoImage(file='favaloro.gif')
+#Label=(ventana, Image=img)
+
+
 
 boton= Button(ventana, text='Mostrar sala de espera', fg='black', font='Verdana')
 boton2= Button(ventana, text='Riesgo vital',bg='red', fg='white', font='Verdana')
@@ -26,4 +29,4 @@ boton4.place(x= 50, y= 220 )
 boton5.place(x= 50, y= 270 )
 boton6.place(x= 50, y= 320 )
 
-ventana.mainloop() # método que mantiene 24/7 activa a la ventana
+ventana.mainloop() # método que mantiene 24/7 activa a la ventana"""
