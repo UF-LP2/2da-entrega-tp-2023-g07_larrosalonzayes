@@ -58,6 +58,8 @@ def main() -> None:
 	hospital.habilitarConsultorios(datetime.now())
 	hospital.imprimirConsultorios()
 
+	hospital.atenderRojos()
+
 	hospital.adelantar5Min()
 
 

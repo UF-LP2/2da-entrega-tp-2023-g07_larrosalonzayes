@@ -96,5 +96,5 @@ class cSalaEspera:
 	
 	def imprimir(self):
 		for i in self.pacientes:
-			print(i.getEsperado(), i.getEsperaMax())
+			print(i.dni, i.nombre, i.apellido, i.patologia)
 			print("\n")
