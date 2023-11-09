@@ -1,3 +1,8 @@
+from datetime import datetime, time
+
+from tkinter import *
+from tkinter import PhotoImage
+
 from library.Consultorio import cConsultorio
 from library.Hospital import cHospital
 from library.SalaEspera import cSalaEspera
@@ -16,11 +21,10 @@ from library.funcionesCSV import cargarMedicosCSV, cargarEnfermerosCSV, cargarPa
 
 # COSAS PARA HACER
 # 
-# - Intefaz     (si o si)
-# - Simulación  (si o si)
-# - Función de paso de tiempo (ver si usamos time o como lo manejamos)
+# - Intefaz (si o si)
+# - Simulación (si o si)
 # - Función para los tiempos de espera (si un naranja supera el tiempo de espera maximo, hay que setearle el color a rojo para q lo atiendan) 
-# - Asignar a los pacientes de la lista (ya ordenados) el consulorio (si o si) 
+# - Asignar a los pacientes de la lista (ya ordenados) el consulorio (si o si)
 
 def main() -> None:
 	# Inicio del main
@@ -38,6 +42,7 @@ def main() -> None:
 
 	listaConsultorios = []
 	listaConsultorios.append(cons0)
+	listaConsultorios.append(cons1)
 	listaConsultorios.append(cons2)
 	listaConsultorios.append(cons3)
 	listaConsultorios.append(cons4)
@@ -50,7 +55,43 @@ def main() -> None:
 	# segun el metodo usado por los enfermeros, y luego se ordenan usando merge-sort
 	hospital.cargarPacientesIniciales(listaPacientes)
 
-	hospital.imprimir()
+	hospital.imprimirPacientes()
+
+	hospital.imprimirConsultorios()
+	hospital.habilitarConsultorios(datetime.now())
+	hospital.imprimirConsultorios()
+
+	hospital.adelantar5Min()
+
+##INTERFAZ
+
+"""ventana = Tk()
+ventana.geometry('500x600') # tamanyo en pixeles de la ventana
+ventana.config(bg='grey') #asigno fondo blanco a la ventana
+ventana.title('tp lp2')
+etiqueta= Label(ventana, text='Hospital Favaloro', fg='white', bg='grey', font='Verdana')
+etiqueta.place(x=180, y= 10)
+#img=PhotoImage(file='logo.png')
+#Label=(ventana,Image=imagen)
+#lbl=(ventana, image= img)
+
+boton= Button(ventana, text='Mostrar sala de espera', fg='black', font='Verdana')
+boton2= Button(ventana, text='Riesgo vital',bg='red', fg='white', font='Verdana')
+boton3= Button(ventana, text='Urgencia alta', bg='orange', fg='black',font='Verdana')
+boton4= Button(ventana, text='Urgencia Media', bg='yellow', fg='black',font='Verdana')
+boton5= Button(ventana, text='Normal', bg='green',fg='white', font='Verdana')
+boton6= Button(ventana, text='No urgente', bg='blue', fg='white',font='Verdana')
+              
+              
+#ubicacion de los botones 
+boton.place(x=50, y= 70)
+boton2.place(x= 50, y= 120 )
+boton3.place(x= 50, y= 170 )
+boton4.place(x= 50, y= 220 )
+boton5.place(x= 50, y= 270 )
+boton6.place(x= 50, y= 320 )
+
+ventana.mainloop() # método que mantiene 24/7 activa a la ventana"""
 
 
 if __name__ == "__main__":
