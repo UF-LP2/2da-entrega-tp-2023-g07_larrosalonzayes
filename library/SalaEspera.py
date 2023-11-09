@@ -94,7 +94,4 @@ class cSalaEspera:
 	def chequeoSeguro(newPaciente: cPaciente):
 		if (newPaciente.getSeguro() != True):
 			raise AttributeError("Paciente sin seguro, se lo hecha")
-		
-	def imprimir(self):
-		for i in self.pacientes:
-			print(i.getColoracion())
+	

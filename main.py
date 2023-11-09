@@ -46,14 +46,6 @@ def cargarPacientesCSV(archivo):
 
 	return listaPacientes
 
-# def cargarAuxCSV(listaPacientes, archivo: string):
-# 	with open(archivo, mode="r") as file:
-# 		# DictReader() se usa para archivos con encabezado
-# 		fp = csv.DictReader(file)
-# 		for i in fp:
-# 			aux = cAux( int( i["id"] ) )
-# 			listaPacientes.append(aux)
-# 		return listaPacientes
 	
 def cargarMedicosCSV(archivo: string):
 	listaMedicos = []
@@ -89,8 +81,35 @@ def cargarMedicosCSV(archivo: string):
 
 	return listaMedicos
 
-def cargarEnfermerosCSV():
+
+def cargarEnfermerosCSV(archivo):
 	listaEnfermeros = []
+
+	# dni, nombre, apellido, horario, estado
+	with open(archivo, mode="r") as file:
+		fp = csv.DictReader(file)
+		for i in fp:
+
+			auxTurno = 0
+			if i["horario"] == 1:
+				auxTurno = 1
+
+			elif i["horario"] == 2:
+				auxTurno = 2
+
+			elif i["horario"] == 3:
+				auxTurno= 3
+
+			else:
+				auxTurno = 4
+
+			auxBool = False
+			if i["estado"] == "true":
+				auxBool = True
+
+			auxEnf = cEnfermero(i["dni"], i["nombre"], i["apellido"], auxTurno, auxBool)
+			listaEnfermeros.append(auxEnf)
+
 	return listaEnfermeros
 
 
@@ -98,7 +117,7 @@ def main() -> None:
 	# Inicio del main
 	listaPacientes = cargarPacientesCSV("pacientes.csv")
 	listaMedicos = cargarMedicosCSV("medicos.csv")
-	listaEnfermeros = cargarEnfermerosCSV()
+	listaEnfermeros = cargarEnfermerosCSV("enfermeros.csv")
 
 	# Por la poca cantidad de datos, los inicializamos sin la necesidad de un .csv
 	cons0 = cConsultorio(0, False)
