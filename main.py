@@ -65,9 +65,12 @@ def main() -> None:
 
 	hospital.adelantar5Min()
 
+	print(salaEspera.getPacientesString())
+
 ##INTERFAZ
 
-"""ventana = Tk()
+"""
+ventana = Tk()
 ventana.geometry('500x600') # tamanyo en pixeles de la ventana
 ventana.config(bg='grey') #asigno fondo blanco a la ventana
 ventana.title('tp lp2')
@@ -93,7 +96,8 @@ boton4.place(x= 50, y= 220 )
 boton5.place(x= 50, y= 270 )
 boton6.place(x= 50, y= 320 )
 
-ventana.mainloop() # método que mantiene 24/7 activa a la ventana"""
+ventana.mainloop() # método que mantiene 24/7 activa a la ventana
+"""
 
 
 if __name__ == "__main__":
