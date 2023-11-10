@@ -1,3 +1,5 @@
+import string
+
 from library.Paciente import cPaciente
 
 class cSalaEspera:
@@ -16,11 +18,23 @@ class cSalaEspera:
 		cSalaEspera.chequeoSeguro(newPaciente)
 		self.pacientes = self.insertSorted(self.pacientes, newPaciente)
 
+
 	def getPacientes(self):
 		return self.pacientes
 	
+
+	def getPacientesString(self):
+		lista = []
+		aux = ""
+		for i in self.pacientes:
+			aux = i.dni + " " + i.nombre + " " + i.apellido + " " + i.patologia
+			lista.append(aux)
+		return lista
+
+
 	def setPacientes(self, newPacientes):
 		self.pacientes = newPacientes
+
 
 	# Tanto mergeSort() como merge() son metodos DE CLASE
 	# y no de objeto, para poder usarse de forma recursiva sin problemas
@@ -40,6 +54,7 @@ class cSalaEspera:
 		# Combina las dos mitades ordenadas en un solo array ordenado.
 		return cSalaEspera.merge(mitadIzq, mitadDer)
 	
+
 	def merge(izquierda, derecha):
 		resultado = []
 		posIzq, posDer = 0, 0
@@ -56,6 +71,8 @@ class cSalaEspera:
 		resultado.extend(derecha[posDer:])
 
 		return resultado
+	
+
 	# Ingresa un paciente a una lista ya ordenada segun valores
 	def insertSorted(listaPacientes, newPaciente):
 		# Usamos búsqueda binaria para encontrar la posición adecuada para insertar el newPaciente
@@ -91,7 +108,7 @@ class cSalaEspera:
 	# En caso de ser pobre, levanta una exception
 	def chequeoSeguro(newPaciente: cPaciente):
 		if (newPaciente.getSeguro() != True):
-			raise AttributeError("Paciente sin seguro, se lo hecha")
+			raise AttributeError("Paciente sin seguro, se lo echa")
 	
 	
 	def imprimir(self):
