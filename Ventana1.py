@@ -59,8 +59,8 @@ Label(ventana, image= image_image_1).place(x=50, y=500)
 
 
 
-boton= Button(ventana, text='Mostrar sala de espera', fg='black', font='Verdana',command= imprimirListaInterfaz())
-boton.pack()
+#boton= Button(ventana, text='Mostrar sala de espera', fg='black', font='Verdana',command= imprimirListaInterfaz())
+#boton.pack()
 boton2= Button(ventana, text='Riesgo vital',bg='bisque4', fg='black', font='Verdana')
 boton3= Button(ventana, text='Urgencia alta', bg='bisque4', fg='black',font='Verdana')
 boton4= Button(ventana, text='Urgencia Media', bg='bisque4', fg='black',font='Verdana')
@@ -69,7 +69,7 @@ boton6= Button(ventana, text='No urgente', bg='bisque4', fg='black',font='Verdan
               
               
 #ubicacion de los botones 
-boton.place(x=50, y= 70)
+#boton.place(x=50, y= 70)
 boton2.place(x= 50, y= 120 )
 boton3.place(x= 50, y= 170 )
 boton4.place(x= 50, y= 220 )
