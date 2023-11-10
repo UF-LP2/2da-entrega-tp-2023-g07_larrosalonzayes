@@ -91,7 +91,8 @@ class cHospital:
 
 	# Imprime la lista de pacientes de la sala de espera
 	def imprimirPacientes(self):
-		self.salaEspera.imprimir()
+		self.salaEspera.imprimir() 
+		
 
 
 	def imprimirConsultorios(self):
@@ -122,3 +123,14 @@ class cHospital:
 
 		for i in self.consultorios:
 			print(i.estado)
+
+	def getListaPacientes(self):
+		return self.salaEspera
+	
+	def getMedicosString(self):
+		lista = []
+		aux = ""
+		for i in self.medicos:
+			aux = i.dni + " " + i.nombre + " " + i.apellido + " " + i.matricula
+			lista.append(aux)
+		return lista
